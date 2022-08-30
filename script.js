@@ -138,3 +138,6 @@ dot3.addEventListener('click', (e) => {
    unfillDot(dot2);
    fillDot(dot3);
 })
+
+// automatic slide change 
+setInterval(function () { nextBtn.click() }, 5000);
