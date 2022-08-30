@@ -41,6 +41,32 @@ prevBtn.addEventListener('click', () => {
    showSlide()
 })
 
+// listeners for stylization
+nextBtn.onmouseover = function () {
+   nextBtn.style.backgroundColor = '#bababa'
+}
+nextBtn.onmouseout = function () {
+   nextBtn.style.backgroundColor = ''
+}
+nextBtn.onmousedown = function () {
+   nextBtn.style.backgroundColor = '#8b8b8b'
+}
+nextBtn.onmouseup = function () {
+   nextBtn.style.backgroundColor = '#bababa'
+}
+
+prevBtn.onmouseover = function () {
+   prevBtn.style.backgroundColor = '#bababa'
+}
+prevBtn.onmouseout = function () {
+   prevBtn.style.backgroundColor = ''
+}
+prevBtn.onmousedown = function () {
+   prevBtn.style.backgroundColor = '#8b8b8b'
+}
+prevBtn.onmouseup = function () {
+   prevBtn.style.backgroundColor = '#bababa'
+}
 
 // slide show logic
 function showSlide() {

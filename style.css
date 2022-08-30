@@ -47,8 +47,10 @@ body {
 }
 
 .btns {
+   padding: 5px;
    width: 35px;
    height: 35px;
+   transition: all 0.2s ease;
 }
 
 #dots {
