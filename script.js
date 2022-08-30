@@ -38,13 +38,22 @@ nextBtn.addEventListener('click', () => {
    if (currentClick === 1 || currentClick === -2) {
       clearFrame()
       createSlide('img/pic2.jpg')
+      unfillDot(dot1);
+      unfillDot(dot3);
+      fillDot(dot2);
    } else if (currentClick === 2 || currentClick === -1) {
       clearFrame();
       createSlide('img/pic3.jpg');
+      unfillDot(dot1);
+      unfillDot(dot2);
+      fillDot(dot3);
    }
    else {
       clearFrame();
       createSlide('img/pic1.jpg');
+      unfillDot(dot2);
+      unfillDot(dot3);
+      fillDot(dot1);
       currentClick = 0
    }
 })
@@ -52,15 +61,24 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
    currentClick -= 1
    if (currentClick === 1 || currentClick === -2) {
-      clearFrame()
-      createSlide('img/pic2.jpg')
+      clearFrame();
+      createSlide('img/pic2.jpg');
+      unfillDot(dot1);
+      unfillDot(dot3);
+      fillDot(dot2);
    } else if (currentClick === 2 || currentClick === -1) {
       clearFrame();
       createSlide('img/pic3.jpg');
+      unfillDot(dot1);
+      unfillDot(dot2);
+      fillDot(dot3);
    }
    else {
       clearFrame();
       createSlide('img/pic1.jpg');
+      unfillDot(dot2);
+      unfillDot(dot3);
+      fillDot(dot1);
       currentClick = 0
    }
 })
@@ -72,15 +90,14 @@ function clearFrame() {
       : null
 }
 
-
 // DOTS
 
 function fillDot(dotId) {
    clearDots(dotId)
 
    const currentDot = document.createElement('img')
-   currentDot.classList.add('dot')
    currentDot.src = 'img/dot.svg'
+   currentDot.classList.add('dot')
 
    dotId.appendChild(currentDot)
 }
@@ -89,19 +106,18 @@ function unfillDot(dotId) {
    clearDots(dotId)
 
    const currentDot = document.createElement('img')
-   currentDot.classList.add('dot')
    currentDot.src = 'img/empty_dot.svg'
+   currentDot.classList.add('dot')
+
 
    dotId.appendChild(currentDot)
 }
 
 // remove current dot for loading clicked one
 function clearDots(dotId) {
-   // debugger
-   console.log(dotId.children[0])
-   dotId.childElementCount
-      ? dotId.removeChild(dotId.children[0])
-      : null
+   while (dotId.firstChild) {
+      dotId.removeChild(dotId.firstChild);
+   }
 }
 
 // event listeners for dots

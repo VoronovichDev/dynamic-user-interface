@@ -47,8 +47,8 @@ body {
 }
 
 .btns {
-   width: 32px;
-   height: 32px;
+   width: 35px;
+   height: 35px;
 }
 
 #dots {
@@ -60,6 +60,7 @@ body {
 }
 
 .dot {
-   width: 10px;
+   width: 15px;
+   height: 15px;
    cursor: pointer;
 }
