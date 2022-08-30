@@ -4,8 +4,6 @@ const slides = document.getElementById('slides')
 const nextBtn = document.getElementById('next-btn');
 const prevBtn = document.getElementById('prev-btn');
 
-const dots = document.getElementById('dots')
-
 const dot1 = document.getElementById('d1');
 const dot2 = document.getElementById('d2');
 const dot3 = document.getElementById('d3');
@@ -35,31 +33,17 @@ let currentClick = 0
 // event listeners for buttons
 nextBtn.addEventListener('click', () => {
    currentClick += 1
-   if (currentClick === 1 || currentClick === -2) {
-      clearFrame()
-      createSlide('img/pic2.jpg')
-      unfillDot(dot1);
-      unfillDot(dot3);
-      fillDot(dot2);
-   } else if (currentClick === 2 || currentClick === -1) {
-      clearFrame();
-      createSlide('img/pic3.jpg');
-      unfillDot(dot1);
-      unfillDot(dot2);
-      fillDot(dot3);
-   }
-   else {
-      clearFrame();
-      createSlide('img/pic1.jpg');
-      unfillDot(dot2);
-      unfillDot(dot3);
-      fillDot(dot1);
-      currentClick = 0
-   }
+   showSlide()
 })
 
 prevBtn.addEventListener('click', () => {
    currentClick -= 1
+   showSlide()
+})
+
+
+// slide show logic
+function showSlide() {
    if (currentClick === 1 || currentClick === -2) {
       clearFrame();
       createSlide('img/pic2.jpg');
@@ -81,7 +65,8 @@ prevBtn.addEventListener('click', () => {
       fillDot(dot1);
       currentClick = 0
    }
-})
+}
+
 
 // clear frame before loading new img
 function clearFrame() {
@@ -90,8 +75,8 @@ function clearFrame() {
       : null
 }
 
-// DOTS
 
+// DOTS
 function fillDot(dotId) {
    clearDots(dotId)
 
@@ -108,7 +93,6 @@ function unfillDot(dotId) {
    const currentDot = document.createElement('img')
    currentDot.src = 'img/empty_dot.svg'
    currentDot.classList.add('dot')
-
 
    dotId.appendChild(currentDot)
 }
